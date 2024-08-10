@@ -3,6 +3,7 @@ import bodyParser from 'body-parser'
 import path from 'path'
 import url from 'url'
 import connectDB from './config/database.js'
+import messageRoute from './routes/message.js'
 import dotenv from 'dotenv'
 dotenv.config()
 
@@ -19,9 +20,7 @@ app.set('views', 'views')
 app.use(bodyParser.urlencoded({extended: false}))
 app.use(express.static(path.join(__dirname, 'public')))
 
-app.use((req, res) => {
-    res.send('<h1>hello world</h1>')
-})
+app.use(messageRoute)
 
 connectDB()
 app.listen(port, () => {

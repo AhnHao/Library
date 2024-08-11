@@ -1,8 +1,8 @@
 import express from 'express'
-import {getIndex} from '../controllers/message.js'
+import { getLogin } from '../controllers/auth.js'
 
 const route = express.Router()
 
-route.get('/', getIndex)
+route.get('/login', getLogin)
 
 export default route

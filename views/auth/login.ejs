@@ -1,5 +1,40 @@
 <%- include('../includes/head') %>
+    <link rel="stylesheet" href="/public/css/form.css">
 </head>
-    
+
+<body>
+  <main class="main">
+    <div class="login_background"></div>
+       <div class="container">
+        <div class="row">
+          <div class="d-flex justify-content-center mt-5">
+            <div class="form-action mt-5">
+              <div class="text-center py-3 my-2">
+                <h1 class="title">Login</h1>
+                <p class="text-white">Please enter your email and password</p>
+              </div>
+              <form action="/login" method="POST" class="d-flex flex-column justify-content-center" novalidate>
+                <div class="mb-4 px-4">
+                  <label for="email" class="form-label text-white">Email address</label>
+                  <input type="email" name="email" placeholder="Enter your email" class="form-control">
+                </div>
+                <div class="mb-4 px-4">
+                  <label for="password" class="form-label text-white">Password</label>
+                  <input type="password" name="password" placeholder="Enter your password" class="form-control">
+                </div>
+                <!-- <div class="mb-4 text-center">
+                    <a href="/login" class="text-warning link-underline link-underline-opacity-0">Forgot your password?</a>
+                </div> -->
+                <button type="submit" class="my_btn border text-white mb-4 align-self-center">Login</button>
+              </form>
+
+              <div class="text-center text-white">
+                <p>Don't have an account? <a href="/signup" class="text-warning link-underline link-underline-opacity-0 ">Register</a></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  </main>
 <body>    
 <%- include('../includes/end') %>

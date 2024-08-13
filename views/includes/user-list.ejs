@@ -1,9 +1,9 @@
 <div class="user-container py-1">
     <ul class="user-list list-unstyled mb-0">
         <li class="user-item <%= path === '/' ? 'active' : ''  %>">
-            <a href="/" class="py-2 ps-3 d-flex align-items-center link-underline link-underline-opacity-0">
+            <a href="/index" class="py-2 ps-3 d-flex align-items-center link-underline link-underline-opacity-0">
                 <img
-                    src="/images/main-image/chat-room-logo.jpg"
+                    src="/public/images/main-image/chat-room-logo.jpg"
                     alt="avatar" class="d-flex align-self-center me-3 rounded-circle" width="60"
                 >
                 <div class="user-info text-white align-self-center">
@@ -16,7 +16,7 @@
             <li class="user-item">
                 <a href="" class="py-2 ps-3 d-flex align-items-center link-underline link-underline-opacity-0">
                     <img
-                        src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava6-bg.webp"
+                        src="/<%= user.avatarImageUrl %>"
                         alt="avatar" class="d-flex align-self-center me-3 rounded-circle" width="60"
                     >
                     <div class="user-info text-white align-self-center">

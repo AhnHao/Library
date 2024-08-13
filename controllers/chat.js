@@ -5,11 +5,12 @@ export const getIndex = async (req, res) => {
  try {
     const messages = await Message.find().populate('sender')
     const users = await User.find()
+    console.log(req.user)
     res.render('chat/index', {
         messages: messages,
         users: users,
         path: '/',
-        userId: req.user._id
+        userId: req.user._id.toString()
     })
  } catch(err) {
     console.log(err)
@@ -26,8 +27,7 @@ export const postMessage = async (req, res) => {
 
   try {
     await message.save()
-    console.log('message has been sent')
-    res.redirect('/')
+    res.redirect('/index')
   } catch (err) {
     console.log(err)
   }

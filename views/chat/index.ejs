@@ -15,7 +15,7 @@
                 <div class="chat-comp p-3 mt-4 d-flex flex-column">
                     <div class="room-info pb-1 border-bottom border-primary-subtle d-flex">
                         <img
-                            src="/images/main-image/chat-room-logo.jpg"
+                            src="/public/images/main-image/chat-room-logo.jpg"
                             alt="avatar" class="d-flex align-self-center me-3 rounded-circle" width="60"
                         >
                         <div class="user-info text-white align-self-center">
@@ -25,37 +25,39 @@
                     </div>
 
                     <div class="message-view my-2">
-                        <% messages.forEach(message => { %>
-                            <% if(userId === message.sender._id) {%>
-                                <div class="message-content-sender d-flex flex-row justify-content-start align-items-center">
-                                    <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava6-bg.webp"
-                                        alt="avatar 1" style="width: 54px; height: 54px;"
-                                        class="mb-3 rounded-circle"
-                                    >
-                                    <div>
-                                        <p class="mb-0 ms-3 text-white"><%= message.sender.username %></p>
-                                        <p class="small p-2 ms-3 mb-1 rounded-3 bg-body-tertiary"><%= message.content %></p>
-                                        <p class="small ms-3 mb-3 rounded-3 text-white float-end">
-                                            <%= new Date(message.createdAt).toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' }) %>
-                                        </p>
+                        <% if(messages) { %>
+                            <% messages.forEach(message => { %>
+                                <% if(userId !== message.sender._id.toString()) {%>
+                                    <div class="message-content-recipient d-flex flex-row justify-content-start align-items-center">
+                                        <img src="/<%= message.sender.avatarImageUrl %>"
+                                            alt="avatar 1" style="width: 54px; height: 54px;"
+                                            class="mb-3 rounded-circle"
+                                        >
+                                        <div>
+                                            <p class="mb-0 ms-3 text-white"><%= message.sender.username %></p>
+                                            <p class="small p-2 ms-3 mb-1 rounded-3 bg-body-tertiary"><%= message.content %></p>
+                                            <p class="small ms-3 mb-3 rounded-3 text-white float-end">
+                                                <%= new Date(message.createdAt).toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' }) %>
+                                            </p>
+                                        </div>
                                     </div>
-                                </div>
-                            <% } else {%>
-                                <div class="message-content-recipient d-flex flex-row justify-content-end align-items-center">
-                                    <div>
-                                        <p class="mb-0 me-3 text-white" style="text-align: right;"><%= message.sender.username %></p>
-                                        <p class="small p-2 me-3 mb-1 rounded-3 bg-body-tertiary"><%= message.content %></p>
-                                        <p class="small me-3 mb-3 rounded-3 text-white float-start">
-                                            <%= new Date(message.createdAt).toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' }) %>
-                                        </p>
+                                <% } else {%>
+                                    <div class="message-content-sender d-flex flex-row justify-content-end align-items-center">
+                                        <div>
+                                            <p class="mb-0 me-3 text-white" style="text-align: right;"><%= message.sender.username %></p>
+                                            <p class="small p-2 me-3 mb-1 rounded-3 bg-body-tertiary"><%= message.content %></p>
+                                            <p class="small me-3 mb-3 rounded-3 text-white float-start">
+                                                <%= new Date(message.createdAt).toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' }) %>
+                                            </p>
+                                        </div>
+                                        <img src="/<%= message.sender.avatarImageUrl %>"
+                                            alt="avatar 1" style="width: 54px; height: 54px;"
+                                            class="mb-3 rounded-circle"
+                                        >
                                     </div>
-                                    <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava6-bg.webp"
-                                        alt="avatar 1" style="width: 54px; height: 54px;"
-                                        class="mb-3 rounded-circle"
-                                    >
-                                </div>
-                            <% } %>
-                        <% }) %> 
+                                <% } %>
+                            <% }) %>
+                        <% } %> 
                     </div>
 
                     <div class="message-box border-top border-primary-subtle d-flex align-items-center">

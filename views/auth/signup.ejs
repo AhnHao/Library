@@ -1,0 +1,44 @@
+<%- include('../includes/head.ejs') %>
+  <link rel="stylesheet" href="/public/css/form.css">
+</head>
+
+<body>
+    <main class="main">
+        <div class="signup_background"></div>v
+        <div class="container">
+            <div class="row">
+                <div class="d-flex justify-content-center mt-2">
+                    <div class="form-action mt-3">
+                    <div class="text-center py-2">
+                        <h1 class="title">Register</h1>
+                        <p class="text-white">Please enter your information</p>
+                    </div>
+                    <form action="/signup" method="POST" class="d-flex flex-column justify-content-center" enctype="multipart/form-data">
+                        <div class="mb-3 px-3">
+                            <label for="username" class="form-label text-white">Username</label>
+                            <input type="text" class="form-control" name="username" placeholder="Enter your username">
+                        </div>
+                        <div class="mb-3 px-3">
+                            <label for="username" class="form-label text-white">Avatar Image</label>
+                            <input type="file" class="form-control" name="avatar" id="avatarImageUrl">
+                        </div>
+                        <div class="mb-3 px-3">
+                            <label for="email" class="form-label text-white">Email address</label>
+                            <input type="email" class="form-control" name="email" placeholder="Enter your email">
+                        </div>
+                        <div class="mb-3 px-3">
+                            <label for="password" class="form-label text-white">Password</label>
+                            <input type="password" class="form-control" name="password" placeholder="Enter your password">
+                        </div>
+                        <div class="mb-3 px-3">
+                            <label for="confirmPassword" class="form-label text-white">confirmPassword</label>
+                            <input type="password" class="form-control" name="confirmPassword" placeholder="re-enter your password">
+                        </div>
+                        <button type="submit" class="my_btn border text-white my-3 align-self-center">Register</button>
+                    </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+<%- include('../includes/end.ejs') %>

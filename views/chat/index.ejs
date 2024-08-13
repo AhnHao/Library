@@ -24,7 +24,7 @@
                         </div>
                     </div>
 
-                    <div class="message-view my-2">
+                    <div class="message-view my-2" id="chat-view">
                         <% if(messages) { %>
                             <% messages.forEach(message => { %>
                                 <% if(userId !== message.sender._id.toString()) {%>
@@ -70,4 +70,12 @@
             </div>
         </div>
     </div>
+    <script>
+        function scrollToBottom() {
+            const chatView = document.getElementById('chat-view')
+            chatView.scrollTop = chatView.scrollHeight
+        }
+
+        window.onload = scrollToBottom
+    </script>
 <%- include('../includes/end') %>

@@ -5,7 +5,6 @@ export const getIndex = async (req, res) => {
  try {
     const messages = await Message.find().populate('sender')
     const users = await User.find()
-    console.log(req.user)
     res.render('chat/index', {
         messages: messages,
         users: users,
